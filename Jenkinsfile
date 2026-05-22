@@ -9,7 +9,8 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/ManojKumar8244/java-ci-demo.git'
+                git branch: 'main',
+                url: 'https://github.com/ManojKumar8244/java-ci-demo.git'
             }
         }
 
@@ -22,10 +23,13 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('SonarCloud') {
-                    sh 'mvn sonar:sonar'
+                    sh '''
+                    mvn sonar:sonar \
+                    -Dsonar.projectKey=java-ci-demo \
+                    -Dsonar.organization=your-org-name
+                    '''
                 }
             }
         }
-
     }
 }
