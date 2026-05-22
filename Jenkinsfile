@@ -26,7 +26,7 @@ pipeline {
                     sh '''
                     mvn sonar:sonar \
                     -Dsonar.projectKey=java-ci-demo \
-                    -Dsonar.organization=your-org-name
+                    -Dsonar.organization=manojkumar8244
                     '''
                 }
             }
