@@ -1,11 +1,15 @@
 pipeline {
     agent any
 
+    tools {
+        maven 'Maven-3'
+    }
+
     stages {
 
         stage('Checkout') {
             steps {
-                git 'https://github.com/ManojKumar8244/java-ci-demo.git'
+                git branch: 'main', url: 'https://github.com/ManojKumar8244/java-ci-demo.git'
             }
         }
 
